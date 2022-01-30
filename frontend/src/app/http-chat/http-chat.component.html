@@ -14,7 +14,7 @@
       </button>
     </div>
 
-    <cdk-virtual-scroll-viewport appendOnly itemSize="50px" style="height: 150px;border: 1px solid black;">
+    <cdk-virtual-scroll-viewport appendOnly itemSize="50px" style="height: 175px;border: 1px solid black;">
 
       <div *cdkVirtualFor="let item of (httpChatService.messageBoard$ | async)"
         style="height: 50px;">

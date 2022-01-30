@@ -16,14 +16,13 @@ export class HttpChatService {
 
   loadMessages(): void {
     this.messageBoard$ = this.http.get<Message[]>(this.backendUrl.serverUrl + '/api/httpchat/getmessages');
-
-    this.messageBoard$.pipe(
-      tap(data => console.log("tap data = ", data))
-    ).subscribe();
   }
 
   sendMessage(newMessage: Message) {
-    this.http.post<Message[]>(this.backendUrl.serverUrl + '/api/httpchat/postmessage', newMessage).subscribe();
+    this.http.post<Message[]>(this.backendUrl.serverUrl + '/api/httpchat/postmessage', newMessage)
+      .pipe(
+        tap(_ => this.loadMessages())
+      ).subscribe();
   }
 
   clearMessages() {
