@@ -30,7 +30,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<mainClass>com.poc.backend.BackendApplication</mainClass>
+					<mainClass>com.poc.backend.Application</mainClass>
 				</configuration>
 				<executions>
 					<execution>
