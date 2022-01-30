@@ -14,6 +14,9 @@ public class InMemoryData implements IDataAccess {
     }
 
     public void AddMessage(Message input) {
+        input.setId(messages.length);
+        input.setTimeStamp(LocalTime.now());
+
         var newMessages = Arrays.copyOf(messages, messages.length + 1);
         newMessages[messages.length] = input;
 
