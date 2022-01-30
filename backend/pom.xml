@@ -47,7 +47,6 @@
 				<version>3.1.2</version>
 				<executions>
 					<execution>
-						<?m2e execute onConfiguration,onIncremental?>
 						<id>merge</id>
 						<phase>initialize</phase>
 						<goals>
