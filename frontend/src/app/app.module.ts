@@ -13,6 +13,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { HttpChatComponent } from './http-chat/http-chat.component';
+import { WebSocketChatComponent } from './web-socket-chat/web-socket-chat.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { HttpChatComponent } from './http-chat/http-chat.component';
   ],
   declarations: [
     AppComponent,
-    HttpChatComponent
+    HttpChatComponent,
+    WebSocketChatComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,55 @@
+<h3>WebSocket Chat Component</h3>
+
+<div>
+
+    <mat-list ma>
+        <div>
+            <button (click)="connect()" mat-raised-button color="primary" style="margin-bottom: 10px;"
+                [disabled]="wsChatService.stompClient?.state === 0">
+                WebSocket Connect
+            </button>
+
+            <button (click)="disconnect()" mat-raised-button color="warn" style="margin: 10px;"
+                [disabled]="wsChatService.stompClient?.state !== 0">
+                WebSocket Disconnect
+            </button>
+        </div>
+
+        <cdk-virtual-scroll-viewport appendOnly itemSize="50px" style="height: 175px;border: 1px solid black;">
+            <div *cdkVirtualFor="let item of wsChatService.messageBoard" class="example-item" style="height: 50px;">
+
+                <label mat-line>{{item.user}}: {{item.content}}</label>
+                <div>
+                    <label mat-line>Timestamp: {{(item.timeStamp)}} </label>
+                </div>
+            </div>
+        </cdk-virtual-scroll-viewport>
+    </mat-list>
+
+
+    <mat-divider></mat-divider>
+
+    <table>
+        <td>
+            <mat-form-field style="width: 150px;">
+                <mat-label>User name</mat-label>
+                <input matInput [(ngModel)]="userName" value={{userName}}>
+            </mat-form-field>
+        </td>
+
+        <td>
+            <mat-form-field style="width: 250px;">
+                <mat-label>Message</mat-label>
+                <input matInput [(ngModel)]="message" value={{message}}>
+            </mat-form-field>
+        </td>
+
+
+        <td>
+            <button mat-raised-button color="primary" style="margin-left: 20px;" (click)="sendMessage()"
+                [disabled]="!userName || !message || wsChatService.stompClient?.state !== 0">
+                Send Message
+            </button>
+        </td>
+    </table>
+</div>
